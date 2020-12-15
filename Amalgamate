@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+        int size;
+        scanf("%d",&size);
+        
+        int first_Array[size],i,j,temp;
+        
+        for(i=0 ; i<size;i++)
+        {
+            scanf("%d",&first_Array[i]);
+        }
+        
+        int size1;
+        scanf("%d",&size1);
+        
+        int Second_Array[size1];
+      
+        for(i=0 ; i<size1;i++)
+        {
+            scanf("%d",&Second_Array[i]);
+        }
+        
+        int Merge_Array[size+size1];
+        int counter = 0;
+
+        for(i=0;i<size;i++)
+        {
+            Merge_Array[i] = first_Array[i];
+            counter++;
+        }
+        for(i=0;i<size1;i++)
+        {
+            Merge_Array[counter++] =Second_Array[i]; 
+        }
+        for(i=0;i<size+size1;i++)
+        {
+            for(j=0;j<size+size1;j++)
+            {
+                if(Merge_Array[i]<Merge_Array[j])
+                {
+                    temp=Merge_Array[i];
+                    Merge_Array[i] = Merge_Array[j];
+                    Merge_Array[j] = temp;
+                }
+            }
+        }
+        for(i=0;i<size+size1;i++)
+        {
+            printf("%d\n",Merge_Array[i]);
+        }
+    
+}
